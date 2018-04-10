@@ -670,6 +670,9 @@
         var lis = document.getElementById('myUL').getElementsByTagName('li');
 
         var waypts = [];
+        // waypts.push({
+        //         optimize: true
+        //       });
 
         for (var i = 0; i < lis.length; i++){
           // alert(lis[i].innerHTML);
@@ -684,9 +687,23 @@
           origin: startAddress,
           // The destination is user entered address.
           waypoints : waypts,
+          optimizeWaypoints : true,
           destination: destinationAddress,
           travelMode: google.maps.TravelMode[mode]
         }, function(response, status) {
+
+          var total_dist = 0;
+          var total_time = 0;
+          var myroute = response.routes[0];
+          for (var i = 0; i < myroute.legs.length; i++) {
+            total_dist += myroute.legs[i].distance.value;
+            total_time += myroute.legs[i].duration.value;
+          }
+          total_dist = total_dist / 1000;
+          total_time = total_time / 60;
+
+          // document.getElementById('total').innerHTML = total + ' km';
+
           if (status === google.maps.DirectionsStatus.OK) {
             var directionsDisplay = new google.maps.DirectionsRenderer({
               map: map,
@@ -696,6 +713,7 @@
                 strokeColor: 'green'
               }
             });
+            window.alert('Total Distance is ' + total_dist + ' km\n' + 'Total Time is '+ total_time+'mins');
           } else {
             window.alert('Directions request failed due to ' + status);
           }
