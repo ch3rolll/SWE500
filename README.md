@@ -9,9 +9,10 @@ For now it is still a single HTML file, you just open it and use it directly.
 
 ![alt text](screenshot.png)
 
-**Step 1: Enter your start point
-Step 2: Set your destination
-Step 3: Add your stops
-Step 4: Hit the `Plan` button
-Step 5: Have a coffee and enjoy your ride
+
+- **Step 1: Enter your start point**
+- **Step 2: Set your destination**
+- **Step 3: Add your stops**
+- **Step 4: Hit the `Plan` button**
+- **Step 5: Have a coffee and enjoy your ride**
 
